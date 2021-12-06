@@ -1,0 +1,45 @@
+package com.imp.prgs;
+
+public class Subarray_with_given_sum_1 {
+	public static void main(String[] args) {
+		int input[] = {10, 9, 8, 7,11, 2, 13};
+		int sum = 19;
+		findSubArrayApproach_1(input,sum);
+		findSubArrayApproach_2(input,input.length,sum);
+	}
+	 static boolean findSubArrayApproach_1(int input[],int requird) {
+		 for(int i=0;i<input.length;i++) {
+			 int sum = input[i];
+			 
+			 for(int j=i+1;j<input.length;j++) {
+				 sum = sum + input[j];
+				 if(sum == requird) {
+					System.out.println(input[i]+" "+input[i+1]+" "+input[j]); 
+					return true;
+				 }else if(sum > requird){
+					 break;
+				 }
+			 }
+		 }
+		return false;
+	 }
+	 
+	 public static boolean findSubArrayApproach_2(int array[], int n, int required) {
+		  int sum = array[0];
+		  int start = 0;
+		  for (int i = 1; i <= n; i++) {
+		    while (sum > required && start < i - 1) {
+		      sum = sum - array[start];
+		      start++;
+		    }
+		    if (sum == required) {
+		    	System.out.println(array[start]+" "+array[start+1]+" "+array[i-1]); 
+		      return true;
+		    }
+		    if (i < n) {
+		      sum = sum + array[i];
+		    }
+		  }
+		  return false;
+		}
+}
