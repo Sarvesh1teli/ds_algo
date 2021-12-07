@@ -1,0 +1,22 @@
+package com.imp.prgs;
+
+//Missing numer :4
+public class FindMissingElement_4 {
+	public static void main(String[] args) {
+		int a[] = { 1, 2, 3, 5 };
+		int missingNum = findMissingNum_1(a);
+		System.out.println("Missing numer :" + missingNum);
+	}
+
+	private static int findMissingNum_1(int[] a) {
+		int n = a.length + 1;
+		int sum = n * (n + 1) / 2;
+		int total = 0;
+		for (int i = 0; i < a.length; i++) {
+			total = total + a[i];
+		}
+		int result = sum - total;
+		return result;
+	}
+
+}
