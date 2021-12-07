@@ -1,0 +1,59 @@
+
+//https://www.interviewbit.com/blog/maximum-subarray-sum/
+/*
+Approach-2 8
+Approach-1 8
+Approach-2 9
+Approach-1 9
+*/
+
+package com.imp.prgs;
+
+public class ContiguousSubArray {
+	public static void main(String[] args) {
+		int a[] = { -3, -4, 5, -1, 2, -4, 6, -1 };
+
+		int maxSub = maxSubArraySumApproach_2(a, a.length);
+		System.out.println("Approach-2 " + maxSub);
+
+		maxSub = maxSubArraySumApproach_1(a, a.length);
+		System.out.println("Approach-1 " + maxSub);
+		
+		int aa[] = {1,2,3,-2,5};
+		a=aa;
+		maxSub = maxSubArraySumApproach_2(a, a.length);
+		System.out.println("Approach-2 " + maxSub);
+
+		maxSub = maxSubArraySumApproach_1(a, a.length);
+		System.out.println("Approach-1 " + maxSub);
+	}
+
+	private static int maxSubArraySumApproach_1(int[] a, int n) {
+		int maxSum = 0;
+		for (int i = 0; i < n; i++) {
+			int curSum = 0;
+			for (int j = i; j < n; j++) {
+				curSum = curSum + a[j];
+				if (maxSum < curSum) {
+					maxSum = curSum;
+				}
+			}
+		}
+		return maxSum;
+	}
+
+	static int maxSubArraySumApproach_2(int a[], int n) {
+		int sum = 0;
+		int max = 0;
+		for (int i = 0; i < n; i++) {
+			sum = sum + a[i];
+			if (sum < 0) {
+				sum = 0;
+			}
+			if (sum > max) {
+				max = sum;
+			}
+		}
+		return max;
+	}
+}
