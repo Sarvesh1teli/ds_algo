@@ -1,0 +1,27 @@
+package com.imp.prgs;
+
+//Time Complexity: O(N * M) where N and M are the size of the A[] and B[].
+//Space Complexity: O(1), as no extra space is used.
+
+public class NumberOfPairsPower_7 {
+	public static void main(String[] args) {
+		int M = 3;
+		int X[] = {2, 1 ,6} ;
+		int N = 2;
+		int Y[] = {1, 5};
+		countPairs(X, Y, M, N);
+	
+	}
+	static void  countPairs(int X[], int Y[], int M, int N)
+    {
+		int count = 0;
+		for(int i=0;i<M;i++) {
+			for(int j=0;j<N;j++) {
+				if(Math.pow(X[i],Y[j]) > Math.pow(Y[j], X[i])){
+					count ++;
+				}
+			}
+		}
+		System.out.println(count);
+    }
+}
