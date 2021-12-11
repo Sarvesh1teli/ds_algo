@@ -1,0 +1,50 @@
+package com.imp.prgs;
+
+import java.util.Arrays;
+
+//Time complexity of above solution is O(n). 
+public class ReverseArrayInGrp_13 {
+	public static void main(String[] args) {
+		// int k = 2;
+		// int arr[] = { 16, 17, 4, 3, 5, 2,7 }; //4 17 16 2 5 3 7
+		// int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 }; // 3 2 1 6 5 4 9 8 7
+
+		// int arr[] = {1, 2, 3, 4, 5, 6, 7, 8} ;//5 4 3 2 1 8 7 6
+		// int k = 5;
+		int arr[] = { 1, 2, 3, 4, 5, 6 };
+		int k = 1;
+
+		// int arr[] = {1, 2, 3, 4, 5, 6, 7, 8};
+		// int k = 10;
+		int n = arr.length - 1;
+		reverseArrayGrp_1(arr, k, n);
+		System.out.println(Arrays.toString(arr));
+	}
+
+	private static void reverseArrayGrp_1(int[] arr, int k, int n) {
+
+		int limit = 0;
+
+		for (int i = 0; i <= n;) {
+			int temp;
+			int left = i;
+			
+			limit = i + k - 1;
+			if (limit > n) {
+				limit = n;
+
+			}
+
+			while (left < limit) {
+				temp = arr[left];
+				arr[left] = arr[limit];
+				arr[limit] = temp;
+				left += 1;
+				limit -= 1;
+			}
+			i = i + k;
+
+		}
+
+	}
+}
