@@ -1,0 +1,72 @@
+package com.imp.prgs;
+
+//https://www.interviewbit.com/blog/rearrange-array-alternately/
+/*
+ *  [6, 1, 5, 2, 4, 3]
+	Time Complexity: O(N) where N is the size of the array a1[].
+	Space Complexity: O(N), as extra space, is used.
+	--------------Approach_2:------
+	[6, 1, 5, 2, 4, 3]
+	Time Complexity: O(N) where N is the size of the array a1[].
+	Space Complexity: O(1), no extra space, is used.
+
+ * 
+ */
+import java.util.Arrays;
+
+public class RearrangeArrayAlternately_6 {
+	public static void main(String[] args) {
+		int a1[] = { 1, 2, 3, 4, 5, 6 };
+		rearrangeApproach_1(a1);
+		System.out.println("Time Complexity: O(N) where N is the size of the array a1[].");
+		System.out.println("Space Complexity: O(N), as extra space, is used.");
+
+		int a2[] = { 1, 2, 3, 4, 5, 6 };
+		System.out.println("--------------Approach_2:------");
+		rearrangeApproach_2(a2);
+		//System.out.println("Time Complexity: O(N) where N is the size of the array a1[].");
+		System.out.println("Space Complexity: O(1), no extra space, is used.");
+
+	}
+
+	static void rearrangeApproach_1(int a1[]) {
+
+		int l = 0;
+		int r = a1.length - 1;
+		int counter = 0;
+		int newarr[] = new int[a1.length];
+
+		while (r > l) {
+			newarr[counter++] = a1[r];
+			newarr[counter++] = a1[l];
+			l++;
+			r--;
+
+		}
+		System.out.println(Arrays.toString(newarr));
+	}
+
+	static void rearrangeApproach_2(int a1[]) {
+
+		int max = a1[a1.length - 1] + 1;
+		int r = a1.length - 1;
+		int l = 0;
+		for (int i = 0; i < a1.length; i++) {
+
+			if (i % 2 == 0) {
+				a1[i] = (a1[r] % max) * max + a1[i];
+				r--;
+
+			} else {
+				a1[i] = (a1[l] % max) * max + a1[i];
+				l++;
+			}
+		}
+
+		for (int i = 0; i < a1.length; i++) {
+			a1[i] = a1[i] / max;
+		}
+		System.out.println(Arrays.toString(a1));
+	}
+
+}
