@@ -1,0 +1,88 @@
+package com.imp.prgs;
+
+/*
+ * https://www.interviewbit.com/blog/count-inversions-of-an-array/
+ * countInv:-->3
+	Time Complexity: O(n^2) + Space Complexity:O(1) 
+	countInversionApproach_2 : countInv-->3
+	Time Complexity: O(NlogN) + Space Complexity:O(N) 
+ */
+public class CountInversions_8 {
+
+	public static void main(String[] args) {
+		int arr[] = {2, 4, 1, 3, 5};
+		countInversionApproach_1(arr);
+		System.out.println("Time Complexity: O(n^2) + Space Complexity:O(1) ");
+		
+		long count  = countInversionApproach_2(arr,arr.length);
+		System.out.println("countInversionApproach_2 : countInv-->"+count);
+		System.out.println("Time Complexity: O(NlogN) + Space Complexity:O(N) ");
+	}
+	static void countInversionApproach_1(int a[]) {
+		int countInv = 0;
+		
+		for(int i=0;i<a.length;i++) {
+			
+			for(int j=i+1;j<a.length-1;j++) {
+				
+				if(a[i] > a[j]) {
+					countInv++;
+				}
+			}
+		}
+		System.out.println("countInv:-->"+countInv);
+	}
+	
+	static long countInversionApproach_2(int arr[],int n ) {
+		return mergeSort(arr, 0, n - 1);
+	}
+	private static long mergeSort(int arr[], int left, int right) {
+        long invCount = 0;
+ 
+        if (right > left) {
+            int mid = (right + left) / 2;
+ 
+            invCount = mergeSort(arr, left, mid);
+            invCount += mergeSort(arr, mid + 1, right);
+            invCount += merge(arr, left, mid + 1, right);
+        }
+        return invCount;
+    }
+	private static long merge(int arr[], int left, int mid, int right) {
+        int i = left, j = mid, k = 0;
+        long invCount = 0;
+        int temp[] = new int[(right - left + 1)];
+ 
+        while ((i < mid) && (j <= right)) {
+            if (arr[i] <= arr[j]) {
+                temp[k] = arr[i];
+                ++k;
+                ++i;
+            } 
+            else {
+                temp[k] = arr[j];
+                invCount += (mid - i);
+                ++k;
+                ++j;
+            }
+        }
+ 
+        while (i < mid) {
+            temp[k] = arr[i];
+            ++k;
+            ++i;
+        }
+ 
+        while (j <= right) {
+            temp[k] = arr[j];
+            ++k;
+            ++j;
+        }
+ 
+        for (i = left, k = 0; i <= right; i++, k++) {
+            arr[i] = temp[k];
+        }
+ 
+        return invCount;
+    }
+}
