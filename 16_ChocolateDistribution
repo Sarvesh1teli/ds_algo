@@ -1,0 +1,28 @@
+package com.imp.prgs;
+
+import java.util.Arrays;
+
+public class ChocolateDistribution_16 {
+	public static void main(String[] args) {
+		
+		int a[]= {3, 4, 1, 9, 56, 7, 9, 12};
+		int m = 5;
+		int n=a.length-1;
+		
+		Arrays.sort(a);
+		int ans = Integer.MAX_VALUE;
+		
+		for(int i = 0;i<=n-m;i++) {
+			
+			int minw = a[i];
+			int maxw = a[i+m-1];
+			int gap = maxw-minw;
+			if(gap < ans) {
+				ans = gap;
+			}
+		}
+		System.out.println(ans);
+	}
+
+}
+//6
