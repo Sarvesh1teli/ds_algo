@@ -1,0 +1,35 @@
+package com.imp.prgs;
+
+public class TrappingRainWater_15 {
+	public static void main(String[] args) {
+		
+		int a[]={3,0,0,2,0,4};
+		int n = a.length-1;
+		
+		trappingRainWater(a,n);
+	}
+	static void trappingRainWater(int[] a,int n){
+		
+		int l = 0;
+		int rt = n;
+		int leftMax = a[l];
+		int rtMax = a[n];
+		
+		int result = 0;
+		
+		while(l<rt) {
+			
+			if(leftMax < rtMax) {
+				l++;
+				leftMax = Math.max(leftMax, a[l]);
+				result += leftMax - a[l];
+			}else {
+				rt--;
+				rtMax = Math.max(rtMax, a[rt]);
+				result += rtMax - a[rt];
+			}
+		}
+		System.out.println(result);
+	}
+}
+//10
