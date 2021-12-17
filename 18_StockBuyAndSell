@@ -1,0 +1,23 @@
+package com.imp.prgs;
+
+public class StockBuyAndSell_18 {
+	public static void main(String[] args) {
+		
+		int a[] = {100, 180, 260, 310, 40, 535, 695} ;
+		int n = a.length;
+		int minValSoFar = a[0];
+		int maxProfit = 0;
+		
+		for(int i=0;i<n;i++) {
+			minValSoFar = Math.min(minValSoFar, a[i]);
+			int profit = a[i]-minValSoFar;
+			maxProfit = Math.max(maxProfit, profit);
+		}
+		
+		System.out.println("minvalue:"+minValSoFar +" profit:"+maxProfit);
+	}
+	
+	
+
+}
+//minvalue:40 profit:655
