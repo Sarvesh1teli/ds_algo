@@ -1,0 +1,51 @@
+package com.imp.prgs;
+
+import java.util.Arrays;
+
+public class ZigZag_20 {
+	public static void main(String[] args) {
+		int arr[] = new int[] { 4, 3, 7, 8, 6, 2, 1 };
+		//int arr[] = new int[] {6202,4625,5469,2038,5916,3405,5533,7004,2469,9853,4992,361,9819,3294,7195,4036,9404,8767,5404,1711,3214,3100,3751,2139,5437,4993,1759,9572,6270,3789,9623,2472,9493};
+
+		// Method for zig-zag conversion of array
+		// Flag true indicates relation "<" is expected,
+		// else ">" is expected. The first expected relation
+		// is "<"
+		boolean flag = true;
+
+		int temp = 0;
+
+		for (int i = 0; i <= arr.length - 2; i++) {
+			if (flag) /* "<" relation expected */
+			{
+				/*
+				 * If we have a situation like A > B > C, we get A > B < C by swapping B and C
+				 */
+				if (arr[i] > arr[i + 1]) {
+					// swap
+					temp = arr[i];
+					arr[i] = arr[i + 1];
+					arr[i + 1] = temp;
+				}
+
+			} else /* ">" relation expected */
+			{
+				/*
+				 * If we have a situation like A < B < C, we get A < C > B by swapping B and C
+				 */
+				if (arr[i] < arr[i + 1]) {
+					// swap
+					temp = arr[i];
+					arr[i] = arr[i + 1];
+					arr[i + 1] = temp;
+				}
+			}
+			flag = !flag; /* flip flag */
+		}
+		
+		 System.out.println(Arrays.toString(arr));
+	}
+
+}
+
+//[3, 7, 4, 8, 2, 6, 1]
