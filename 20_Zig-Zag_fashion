@@ -1,5 +1,8 @@
 package com.imp.prgs;
-
+/*
+Given an array Arr (distinct elements) of size N. Rearrange the elements of array in zig-zag fashion. The converted array should be in form a < b > c < d > e < f. 
+The relative order of elements is same in the output i.e you have to iterate on the original array only.
+*/
 import java.util.Arrays;
 
 public class ZigZag_20 {
