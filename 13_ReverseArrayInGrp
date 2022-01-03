@@ -26,27 +26,21 @@ public class ReverseArrayInGrp_13 {
 
 	private static void reverseArrayGrp_1(int[] arr, int k, int n) {
 
-		int limit = 0;
+		int end = 0;
 
-		for (int i = 0; i <= n;) {
+		for (int i = 0; i <= n;i = i + k) {
 			int temp;
-			int left = i;
+			int start = i;
 			
-			limit = i + k - 1;
-			if (limit > n) {
-				limit = n;
-
+			end = Math.min(i + k - 1, n-1);
+			
+			while (start < end) {
+				temp = arr[start];
+				arr[start] = arr[end];
+				arr[end] = temp;
+				start += 1;
+				end -= 1;
 			}
-
-			while (left < limit) {
-				temp = arr[left];
-				arr[left] = arr[limit];
-				arr[limit] = temp;
-				left += 1;
-				limit -= 1;
-			}
-			i = i + k;
-
 		}
 
 	}
