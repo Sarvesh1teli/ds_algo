@@ -1,5 +1,8 @@
 package com.imp.prgs;
-
+/*
+An element of array is leader if it is greater than or equal to all the elements to its right side. The rightmost element is always a leader. 
+Expected Time Complexity: O(n)
+*/
 //O(n)   
 //2 5 17 
 public class LeadersInArray_11 {
