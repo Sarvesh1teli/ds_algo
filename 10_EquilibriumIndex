@@ -1,5 +1,9 @@
 package com.imp.prgs;
 // o(n)
+/* Equilibrium Point in an array is a position such that the sum of elements before it is equal to the sum of elements after it.
+A[] = {1,3,5,2,2}  output=3 i.e index
+Explanation: For second test case  equilibrium point is at position 3 as elements before it (1+3) = elements after it (2+2).
+*/
 public class EquilibriumIndex_10 {
 	public static void main(String[] args) {
 		EquilibriumIndex_10 equi = new EquilibriumIndex_10();
