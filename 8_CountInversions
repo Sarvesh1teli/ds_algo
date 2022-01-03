@@ -1,6 +1,6 @@
 package com.imp.prgs;
 
-/*
+/*Two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
 	Input: N = 5, arr[] = {2, 4, 1, 3, 5}
 	Output: 3
 	Explanation: The sequence 2, 4, 1, 3, 5 
@@ -10,6 +10,7 @@ package com.imp.prgs;
 	Time Complexity: O(n^2) + Space Complexity:O(1) 
 	countInversionApproach_2 : countInv-->3
 	Time Complexity: O(NlogN) + Space Complexity:O(N) 
+	
  */
 public class CountInversions_8 {
 
