@@ -1,5 +1,10 @@
 package com.imp.prgs;
 
+/*
+ Element with left side smaller and right side greater
+Given an unsorted array of size N. Find the first element in array such that all of its left elements are smaller and all right elements to it are greater than it.
+
+*/
 public class Perfect_Numb_Array_19 {
 	static int findElement(int[] arr, int n) {
 		// leftMax[i] stores maximum of arr[0..i-1]
@@ -40,9 +45,9 @@ public class Perfect_Numb_Array_19 {
 
 	// Driver code
 	public static void main(String args[]) {
-		//int[] arr = { 5, 1, 4, 3, 6, 8, 10, 7, 9 };
-		//int[] arr ={4, 2, 5, 7};
-		//int[] arr = { 5, 6, 4, 1, 7, 12, 9, 1, 4, 1, 11, 5, 7, 1};
+		//int[] arr = { 5, 1, 4, 3, 6, 8, 10, 7, 9 }; //6
+		//int[] arr ={4, 2, 5, 7};   //output 5
+		//int[] arr = { 5, 6, 4, 1, 7, 12, 9, 1, 4, 1, 11, 5, 7, 1};  //
 		int[] arr ={6 ,1 ,10}; 
 		int n = arr.length;
 		System.out.println("Index of the element is " + findElement(arr, n));
